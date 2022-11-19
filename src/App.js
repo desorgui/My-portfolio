@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {SectionsContainer, Section} from 'react-fullpage';
+import Navbar from './components/Navbar'
+import Hero from './components/Hero';
+import Portfolio from './components/Portfolio';
+
+let options = {
+  sectionClassName:     'section',
+  anchors:              ['1', '2', '3', '4'],
+  scrollBar:            false,
+  navigation:           true,
+  verticalAlign:        false,
+  sectionPaddingTop:    '50px',
+  sectionPaddingBottom: '50px',
+  arrowNavigation:      true
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <SectionsContainer {...options}>
+      <Section><Hero /></Section>
+      <Section><Portfolio /></Section>
+      </SectionsContainer>
+    </>
   );
 }
 
